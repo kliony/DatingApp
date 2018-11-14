@@ -12,6 +12,8 @@ namespace DatingApp.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+
+    [AllowAnonymous]
     public class ValuesController : ControllerBase
     {
         // GET api/values
