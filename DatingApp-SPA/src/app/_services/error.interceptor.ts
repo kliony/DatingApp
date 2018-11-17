@@ -9,7 +9,7 @@ export class ErrorIntercept implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
-                    if (error.status === 401){
+                    if (error.status === 401) {
                         return throwError(error.statusText);
                     }
                     const applicationError = error.headers.get('Application-Error');
@@ -38,4 +38,4 @@ export const ErrorInterceptProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorIntercept,
     multi: true
-}
+};
